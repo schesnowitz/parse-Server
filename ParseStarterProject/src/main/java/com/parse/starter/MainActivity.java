@@ -25,6 +25,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+import com.parse.SignUpCallback;
 
 import java.util.List;
 
@@ -37,26 +38,40 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    ParseQuery<ParseObject> query = ParseQuery.getQuery("Coords");
+      ParseUser.logOut();
 
-//    query.whereContains("status", "i");
-    query.whereEqualTo("status", "GFYS"); 
-    query.setLimit(1);
-
-    query.findInBackground(new FindCallback<ParseObject>() {
-      @Override
-      public void done(List<ParseObject> objects, ParseException e) {
-        if (e == null) {
-          Log.i("Data: ", "Total Retrieved ---> " + objects.size());
-
-          if (objects.size() > 0) {
-            for (ParseObject object : objects) {
-              Log.i("Data: ", "Retrieved --> " + object.getString("status"));
-            }
-          }
-        }
+      if (ParseUser.getCurrentUser() != null) {
+        Log.i("UserStatus -->", "Logged In " + ParseUser.getCurrentUser().getUsername());
+      } else {
+        Log.i("UserStatus -->", "NOT Logged In");
       }
-    });
+
+//    ParseUser.logInInBackground("UserName-email@email.com", "password", new LogInCallback() {
+//      @Override
+//      public void done(ParseUser user, ParseException e) {
+//        if (user != null) {
+//          Log.i("User --> ","logged in with ");
+//        } else {
+//          Log.i("User --> ","FAILED to log with error " + e.toString());
+//        }
+//      }
+//    });
+
+//    ParseUser user = new ParseUser();
+//    user.setUsername("UserName-email@email.com");
+//    user.setEmail("email@email.com");
+//    user.setPassword("password");
+//
+//    user.signUpInBackground(new SignUpCallback() {
+//      @Override
+//      public void done(ParseException e) {
+//        if (e == null) {
+//          Log.i("Sign Up --> ", "Success");
+//        } else {
+//          Log.i("Sign Up --> ", "Failed " + e.toString());
+//        }
+//      }
+//    });
 
 
     ParseAnalytics.trackAppOpenedInBackground(getIntent());
