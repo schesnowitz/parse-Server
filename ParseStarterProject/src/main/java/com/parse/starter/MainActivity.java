@@ -39,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
     ParseQuery<ParseObject> query = ParseQuery.getQuery("Coords");
 
+//    query.whereContains("status", "i");
+    query.whereEqualTo("status", "GFYS"); 
+    query.setLimit(1);
+
     query.findInBackground(new FindCallback<ParseObject>() {
       @Override
       public void done(List<ParseObject> objects, ParseException e) {
