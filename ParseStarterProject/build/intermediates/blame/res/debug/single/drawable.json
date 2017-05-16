@@ -16,12 +16,12 @@
         "source": "C:\\Users\\steve\\.android\\build-cache\\fa08db341a154c0eed71956290cdca1a4c9cf965\\output\\res\\drawable\\common_plus_signin_btn_text_dark.xml"
     },
     {
-        "merged": "C:\\Users\\steve\\Desktop\\Applications\\android\\ParseServer\\ParseStarterProject\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
-        "source": "C:\\Users\\steve\\.android\\build-cache\\c2849b84cbd4965fe509866ccd9db1189822a22f\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
-    },
-    {
         "merged": "C:\\Users\\steve\\Desktop\\Applications\\android\\ParseServer\\ParseStarterProject\\build\\intermediates\\res\\merged\\debug\\drawable\\common_plus_signin_btn_icon_dark.xml",
         "source": "C:\\Users\\steve\\.android\\build-cache\\fa08db341a154c0eed71956290cdca1a4c9cf965\\output\\res\\drawable\\common_plus_signin_btn_icon_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\steve\\Desktop\\Applications\\android\\ParseServer\\ParseStarterProject\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
+        "source": "C:\\Users\\steve\\.android\\build-cache\\c2849b84cbd4965fe509866ccd9db1189822a22f\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
     },
     {
         "merged": "C:\\Users\\steve\\Desktop\\Applications\\android\\ParseServer\\ParseStarterProject\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_light.xml",

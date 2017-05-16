@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Switch;
 
+import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.LogInCallback;
 import com.parse.Parse;
@@ -25,6 +26,8 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,46 +37,22 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
+    ParseQuery<ParseObject> query = ParseQuery.getQuery("Coords");
 
-//    ParseObject coords = new ParseObject("Coords");
-//
-//    coords.put("status", "onDuty");
-//    coords.put("latitude", "1231");
-//      coords.put("number", 1234);
-//    coords.saveInBackground(new SaveCallback() {
-//      @Override
-//      public void done(ParseException e) {
-//        if (e == null) {
-//          Log.i("saveEventually", "all okay");
-//        } else {
-//          Log.i("saveEventually", "some problem, Details: " + e.toString());
-//        }
-//      }
-//    });
+    query.findInBackground(new FindCallback<ParseObject>() {
+      @Override
+      public void done(List<ParseObject> objects, ParseException e) {
+        if (e == null) {
+          Log.i("Data: ", "Total Retrieved ---> " + objects.size());
 
-
-
-      ParseQuery<ParseObject> query = ParseQuery.getQuery("Coords");
-
-      query.getInBackground("qhoHygArF0", new GetCallback<ParseObject>() {
-          @Override
-          public void done(ParseObject object, ParseException e) {
-                  if (e == null && object != null) {
-
-                      object.put("status", "GFYS" );
-                      object.saveInBackground();
-
-
-                    Log.i("ObjectValue", object.getString("status"));
-                    Log.i("ObjectValue", object.getString("latitude"));
-                    Log.i("ObjectValue", Integer.toString(object.getInt("number")));
-
-            } else {
-                    Log.i("saveEventually", "some problem, Details: " + e.toString());
+          if (objects.size() > 0) {
+            for (ParseObject object : objects) {
+              Log.i("Data: ", "Retrieved --> " + object.getString("status"));
             }
           }
-      });
-
+        }
+      }
+    });
 
 
     ParseAnalytics.trackAppOpenedInBackground(getIntent());
